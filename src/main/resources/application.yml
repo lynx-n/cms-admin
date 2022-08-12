@@ -1,0 +1,24 @@
+server:
+  port: 8848
+
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: dev
+  application:
+    name: cms
+
+#分页pageHelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#
+#mybatis:
+#  configuration:
+#    # 下划线转驼峰
+#    map-underscore-to-camel-case: true

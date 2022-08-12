@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.admin.mapper.CmsDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsDevice">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="device_number" jdbcType="VARCHAR" property="deviceNumber" />
+    <result column="device_ip" jdbcType="VARCHAR" property="deviceIp" />
+    <result column="device_mac" jdbcType="VARCHAR" property="deviceMac" />
+    <result column="device_position" jdbcType="VARCHAR" property="devicePosition" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, device_number, device_ip, device_mac, device_position, created_by, updated_by, 
+    created_time, updated_time
+  </sql>
+  <select id="selectDeviceById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cms_device
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectDeviceByIp" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cms_device
+    where ip = #{ip,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectDeviceByMac" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cms_device
+    where mac = #{mac,jdbcType=INTEGER}
+  </select>
+
+
+  <select id="selectDevices"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cms_device
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cms_device
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsDevice" useGeneratedKeys="true">
+    insert into cms_device (device_number, device_ip, device_mac, 
+      device_position, created_by, updated_by, 
+      created_time, updated_time)
+    values (#{deviceNumber,jdbcType=VARCHAR}, #{deviceIp,jdbcType=VARCHAR}, #{deviceMac,jdbcType=VARCHAR}, 
+      #{devicePosition,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsDevice" useGeneratedKeys="true">
+    insert into cms_device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceNumber != null">
+        device_number,
+      </if>
+      <if test="deviceIp != null">
+        device_ip,
+      </if>
+      <if test="deviceMac != null">
+        device_mac,
+      </if>
+      <if test="devicePosition != null">
+        device_position,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceNumber != null">
+        #{deviceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceIp != null">
+        #{deviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceMac != null">
+        #{deviceMac,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePosition != null">
+        #{devicePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.CmsDevice">
+    update cms_device
+    <set>
+      <if test="deviceNumber != null">
+        device_number = #{deviceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceIp != null">
+        device_ip = #{deviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceMac != null">
+        device_mac = #{deviceMac,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePosition != null">
+        device_position = #{devicePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsDevice">
+    update cms_device
+    set device_number = #{deviceNumber,jdbcType=VARCHAR},
+      device_ip = #{deviceIp,jdbcType=VARCHAR},
+      device_mac = #{deviceMac,jdbcType=VARCHAR},
+      device_position = #{devicePosition,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

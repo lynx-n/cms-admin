@@ -1,0 +1,111 @@
+2022-08-12 22:50:05,164 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 15664 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 22:50:05,166 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 22:50:05,569 [main] WARN  [org.mybatis.spring.mapper.ClassPathMapperScanner] Logger.java:44 - No MyBatis mapper was found in '[com.cms.admin]' package. Please check your configuration.
+2022-08-12 22:50:05,799 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 22:50:05,804 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 22:50:05,805 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 22:50:05,853 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 22:50:05,854 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 663 ms
+2022-08-12 22:50:06,137 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 22:50:06,145 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:61 - Started CmsApplication in 1.319 seconds (JVM running for 1.801)
+2022-08-12 22:51:57,802 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 17012 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 22:51:57,803 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 22:51:58,200 [main] WARN  [org.mybatis.spring.mapper.ClassPathMapperScanner] Logger.java:44 - No MyBatis mapper was found in '[com.cms.admin]' package. Please check your configuration.
+2022-08-12 22:51:58,433 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 22:51:58,438 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 22:51:58,438 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 22:51:58,492 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 22:51:58,493 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 665 ms
+2022-08-12 22:51:58,772 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 22:51:58,779 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:61 - Started CmsApplication in 1.315 seconds (JVM running for 1.801)
+2022-08-12 23:00:39,257 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 12176 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 23:00:39,259 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 23:00:39,815 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:132 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-12 23:00:39,827 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:201 - Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+2022-08-12 23:00:40,158 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 23:00:40,164 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 23:00:40,164 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 23:00:40,223 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 23:00:40,223 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 938 ms
+2022-08-12 23:00:40,352 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-12 23:00:40,426 [cluster-ClusterId{value='62f66b1844caad0b2f53c006', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:9}] to localhost:27017
+2022-08-12 23:00:40,426 [cluster-rtt-ClusterId{value='62f66b1844caad0b2f53c006', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:10}] to localhost:27017
+2022-08-12 23:00:40,426 [cluster-ClusterId{value='62f66b1844caad0b2f53c006', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=40628200}
+2022-08-12 23:00:40,947 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 23:00:40,950 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] AbstractApplicationContext.java:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+2022-08-12 23:00:41,052 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Stopping service [Tomcat]
+2022-08-12 23:00:41,060 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLoggingListener] ConditionEvaluationReportLoggingListener.java:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-12 23:01:44,224 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 27304 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 23:01:44,226 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 23:01:44,804 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:132 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-12 23:01:44,815 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:201 - Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+2022-08-12 23:01:45,149 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 23:01:45,155 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 23:01:45,155 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 23:01:45,222 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 23:01:45,222 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 969 ms
+2022-08-12 23:01:45,349 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-12 23:01:45,423 [cluster-ClusterId{value='62f66b59ab8dad0fa5d688a7', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:12}] to localhost:27017
+2022-08-12 23:01:45,423 [cluster-rtt-ClusterId{value='62f66b59ab8dad0fa5d688a7', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:11}] to localhost:27017
+2022-08-12 23:01:45,424 [cluster-ClusterId{value='62f66b59ab8dad0fa5d688a7', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=40576599}
+2022-08-12 23:01:45,950 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 23:01:45,953 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] AbstractApplicationContext.java:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+2022-08-12 23:01:46,056 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Stopping service [Tomcat]
+2022-08-12 23:01:46,064 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLoggingListener] ConditionEvaluationReportLoggingListener.java:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-12 23:02:13,971 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 25620 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 23:02:13,973 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 23:02:14,535 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:132 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-12 23:02:14,547 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:201 - Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+2022-08-12 23:02:14,888 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 23:02:14,894 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 23:02:14,894 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 23:02:14,959 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 23:02:14,959 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 961 ms
+2022-08-12 23:02:15,098 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-12 23:02:15,146 [cluster-ClusterId{value='62f66b7732f93314fa063871', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:14}] to localhost:27017
+2022-08-12 23:02:15,146 [cluster-rtt-ClusterId{value='62f66b7732f93314fa063871', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:13}] to localhost:27017
+2022-08-12 23:02:15,146 [cluster-ClusterId{value='62f66b7732f93314fa063871', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13437700}
+2022-08-12 23:02:15,770 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 23:02:15,773 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] AbstractApplicationContext.java:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+2022-08-12 23:02:15,874 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Stopping service [Tomcat]
+2022-08-12 23:02:15,882 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLoggingListener] ConditionEvaluationReportLoggingListener.java:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-12 23:06:58,581 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 23396 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 23:06:58,583 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 23:06:59,142 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:132 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-12 23:06:59,153 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:201 - Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+2022-08-12 23:06:59,492 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 23:06:59,498 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 23:06:59,499 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 23:06:59,560 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 23:06:59,560 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 951 ms
+2022-08-12 23:06:59,706 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-12 23:06:59,758 [cluster-rtt-ClusterId{value='62f66c93e232f926e99d5792', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:15}] to localhost:27017
+2022-08-12 23:06:59,758 [cluster-ClusterId{value='62f66c93e232f926e99d5792', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:16}] to localhost:27017
+2022-08-12 23:06:59,759 [cluster-ClusterId{value='62f66c93e232f926e99d5792', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13486302}
+2022-08-12 23:07:00,381 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 23:07:00,384 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] AbstractApplicationContext.java:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+2022-08-12 23:07:00,483 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Stopping service [Tomcat]
+2022-08-12 23:07:00,491 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLoggingListener] ConditionEvaluationReportLoggingListener.java:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-12 23:09:43,531 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:55 - Starting CmsApplication using Java 1.8.0_275 on DESKTOP-8IT8864 with PID 12632 (D:\project\admin\cms-admin\target\classes started by 20200420 in D:\project\admin\cms-admin)
+2022-08-12 23:09:43,533 [main] INFO  [com.cms.admin.CmsApplication] SpringApplication.java:639 - The following profiles are active: dev
+2022-08-12 23:09:44,118 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:132 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-12 23:09:44,130 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:201 - Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+2022-08-12 23:09:44,481 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8848 (http)
+2022-08-12 23:09:44,486 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2022-08-12 23:09:44,487 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-08-12 23:09:44,548 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2022-08-12 23:09:44,548 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 988 ms
+2022-08-12 23:09:44,689 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-12 23:09:44,751 [cluster-rtt-ClusterId{value='62f66d380dd5fb5a13480823', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:17}] to localhost:27017
+2022-08-12 23:09:44,751 [cluster-ClusterId{value='62f66d380dd5fb5a13480823', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:18}] to localhost:27017
+2022-08-12 23:09:44,751 [cluster-ClusterId{value='62f66d380dd5fb5a13480823', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=12775801}
+2022-08-12 23:09:45,320 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:220 - Tomcat started on port(s): 8848 (http) with context path ''
+2022-08-12 23:09:45,475 [main] INFO  [com.cms.admin.CmsApplication] StartupInfoLogger.java:61 - Started CmsApplication in 2.304 seconds (JVM running for 2.832)

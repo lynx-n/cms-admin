@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.admin.mapper.CmsMenuAuthorityMapper">
+    <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsMenuAuthorityEntity">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="menu_path" jdbcType="VARCHAR" property="menuPath"/>
+        <result column="pid" jdbcType="INTEGER" property="pid"/>
+        <result column="menu_description" jdbcType="VARCHAR" property="menuDescription"/>
+        <result column="component" jdbcType="VARCHAR" property="component"/>
+        <result column="hidden" jdbcType="BOOLEAN" property="hidden"/>
+        <result column="menu_name" jdbcType="VARCHAR" property="menuName"/>
+        <result column="meta" jdbcType="VARCHAR" property="meta"/>
+        <!-- 查询子模块 -->
+        <collection property="children" column="id" select="selectMenuByPid" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        ,pid, menu_path, menu_description, component, hidden, menu_name, meta
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_menu_authority
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectMenuByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_menu_authority
+        where pid = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectMenus" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_menu_authority
+        where pid = 0
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from cms_menu_authority
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity"
+            useGeneratedKeys="true">
+        insert into cms_menu_authority (menu_path, menu_description, component,
+                                        hidden, menu_name, meta,pid)
+        values (#{menuPath,jdbcType=VARCHAR}, #{menuDescription,jdbcType=VARCHAR}, #{component,jdbcType=VARCHAR},
+                #{hidden,jdbcType=BOOLEAN}, #{menuName,jdbcType=VARCHAR}, #{meta,jdbcType=VARCHAR},#{pid,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity" useGeneratedKeys="true">
+        insert into cms_menu_authority
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuPath != null">
+                menu_path,
+            </if>
+            <if test="menuDescription != null">
+                menu_description,
+            </if>
+            <if test="component != null">
+                component,
+            </if>
+            <if test="hidden != null">
+                hidden,
+            </if>
+            <if test="menuName != null">
+                menu_name,
+            </if>
+            <if test="meta != null">
+                meta,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="menuPath != null">
+                #{menuPath,jdbcType=VARCHAR},
+            </if>
+            <if test="menuDescription != null">
+                #{menuDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="component != null">
+                #{component,jdbcType=VARCHAR},
+            </if>
+            <if test="hidden != null">
+                #{hidden,jdbcType=BOOLEAN},
+            </if>
+            <if test="menuName != null">
+                #{menuName,jdbcType=VARCHAR},
+            </if>
+            <if test="meta != null">
+                #{meta,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity">
+        update cms_menu_authority
+        <set>
+            <if test="menuPath != null">
+                menu_path = #{menuPath,jdbcType=VARCHAR},
+            </if>
+            <if test="menuDescription != null">
+                menu_description = #{menuDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="component != null">
+                component = #{component,jdbcType=VARCHAR},
+            </if>
+            <if test="hidden != null">
+                hidden = #{hidden,jdbcType=BOOLEAN},
+            </if>
+            <if test="menuName != null">
+                menu_name = #{menuName,jdbcType=VARCHAR},
+            </if>
+            <if test="meta != null">
+                meta = #{meta,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                meta = #{pid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity">
+        update cms_menu_authority
+        set menu_path        = #{menuPath,jdbcType=VARCHAR},
+            menu_description = #{menuDescription,jdbcType=VARCHAR},
+            component        = #{component,jdbcType=VARCHAR},
+            hidden           = #{hidden,jdbcType=BOOLEAN},
+            menu_name        = #{menuName,jdbcType=VARCHAR},
+            meta             = #{meta,jdbcType=VARCHAR},
+            pid              = #{pid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

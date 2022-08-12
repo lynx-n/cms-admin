@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.admin.mapper.CmsResourceMapper">
+    <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsResource">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="file_id" jdbcType="VARCHAR" property="fileId"/>
+        <result column="name_cn" jdbcType="VARCHAR" property="nameCn"/>
+        <result column="md5" jdbcType="VARCHAR" property="md5"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="suffix" jdbcType="VARCHAR" property="suffix"/>
+        <result column="file_type" jdbcType="VARCHAR" property="fileType"/>
+        <result column="file_path" jdbcType="VARCHAR" property="filePath"/>
+        <result column="file_size" jdbcType="VARCHAR" property="fileSize"/>
+        <result column="content_type" jdbcType="VARCHAR" property="contentType"/>
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , uuid, file_id, name_cn, md5, icon, suffix, file_type, file_path, file_size, content_type,
+    created_by, updated_by, created_time, updated_time
+    </sql>
+    <select id="selectResourceById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_resource
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectResourceByMD5" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_resource
+        where md5 = #{md5,jdbcType=VARCHAR}
+        ORDER BY id DESC LIMIT 1
+    </select>
+
+
+    <select id="selectResources" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_resource
+    </select>
+    <select id="selectResourceByUuid" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_resource
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteResourceById" parameterType="java.lang.Integer">
+        delete
+        from cms_resource
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insertCmsResource" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsResource"
+            useGeneratedKeys="true">
+        insert into cms_resource (uuid, file_id, name_cn,
+                                  md5, icon, suffix,
+                                  file_type, file_path, file_size,
+                                  content_type, created_by, updated_by, width, height)
+        values (#{uuid,jdbcType=VARCHAR}, #{fileId,jdbcType=VARCHAR}, #{nameCn,jdbcType=VARCHAR},
+                #{md5,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{suffix,jdbcType=VARCHAR},
+                #{fileType,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, #{fileSize,jdbcType=VARCHAR},
+                #{contentType,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR},
+                #{width,jdbcType=INTEGER}, #{height,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsResource"
+            useGeneratedKeys="true">
+        insert into cms_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                uuid,
+            </if>
+            <if test="fileId != null">
+                file_id,
+            </if>
+            <if test="nameCn != null">
+                name_cn,
+            </if>
+            <if test="md5 != null">
+                md5,
+            </if>
+            <if test="icon != null">
+                icon,
+            </if>
+            <if test="suffix != null">
+                suffix,
+            </if>
+            <if test="fileType != null">
+                file_type,
+            </if>
+            <if test="filePath != null">
+                file_path,
+            </if>
+            <if test="fileSize != null">
+                file_size,
+            </if>
+            <if test="contentType != null">
+                content_type,
+            </if>
+            <if test="createdBy != null">
+                created_by,
+            </if>
+            <if test="updatedBy != null">
+                updated_by,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+            <if test="updatedTime != null">
+                updated_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="fileId != null">
+                #{fileId,jdbcType=VARCHAR},
+            </if>
+            <if test="nameCn != null">
+                #{nameCn,jdbcType=VARCHAR},
+            </if>
+            <if test="md5 != null">
+                #{md5,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="suffix != null">
+                #{suffix,jdbcType=VARCHAR},
+            </if>
+            <if test="fileType != null">
+                #{fileType,jdbcType=VARCHAR},
+            </if>
+            <if test="filePath != null">
+                #{filePath,jdbcType=VARCHAR},
+            </if>
+            <if test="fileSize != null">
+                #{fileSize,jdbcType=VARCHAR},
+            </if>
+            <if test="contentType != null">
+                #{contentType,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateCmsResourceSelective" parameterType="com.cms.admin.entity.CmsResource">
+        update cms_resource
+        <set>
+            <if test="uuid != null">
+                uuid = #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="fileId != null">
+                file_id = #{fileId,jdbcType=VARCHAR},
+            </if>
+            <if test="nameCn != null">
+                name_cn = #{nameCn,jdbcType=VARCHAR},
+            </if>
+            <if test="md5 != null">
+                md5 = #{md5,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                icon = #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="suffix != null">
+                suffix = #{suffix,jdbcType=VARCHAR},
+            </if>
+            <if test="fileType != null">
+                file_type = #{fileType,jdbcType=VARCHAR},
+            </if>
+            <if test="filePath != null">
+                file_path = #{filePath,jdbcType=VARCHAR},
+            </if>
+            <if test="fileSize != null">
+                file_size = #{fileSize,jdbcType=VARCHAR},
+            </if>
+            <if test="contentType != null">
+                content_type = #{contentType,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                created_by = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedBy != null">
+                updated_by = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                created_time = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedTime != null">
+                updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateCmsResource" parameterType="com.cms.admin.entity.CmsResource">
+        update cms_resource
+        set uuid         = #{uuid,jdbcType=VARCHAR},
+            file_id      = #{fileId,jdbcType=VARCHAR},
+            name_cn      = #{nameCn,jdbcType=VARCHAR},
+            md5          = #{md5,jdbcType=VARCHAR},
+            icon         = #{icon,jdbcType=VARCHAR},
+            suffix       = #{suffix,jdbcType=VARCHAR},
+            file_type    = #{fileType,jdbcType=VARCHAR},
+            file_path    = #{filePath,jdbcType=VARCHAR},
+            file_size    = #{fileSize,jdbcType=VARCHAR},
+            content_type = #{contentType,jdbcType=VARCHAR},
+            created_by   = #{createdBy,jdbcType=VARCHAR},
+            updated_by   = #{updatedBy,jdbcType=VARCHAR},
+            created_time = #{createdTime,jdbcType=TIMESTAMP},
+            updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.admin.mapper.CmsUserMapper">
+    <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsUser">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="age" jdbcType="TINYINT" property="age"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , username, `password`,encrypt_key,avatar, age, phone, created_by, updated_by, created_time, updated_time
+    </sql>
+
+
+    <select id="selectCmsUserByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cms_user
+        where username = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectCmsUserVOById" parameterType="java.lang.Integer" resultType="com.cms.admin.vo.CmsUserVO">
+        SELECT u.id,
+               username,
+               age,
+               phone,
+               avatar,
+               created_by,
+               updated_by,
+               created_time,
+               updated_time,
+               rr.role_id,
+               rr.role_name,
+               rr.description
+        FROM cms_user AS u
+                 INNER JOIN
+
+             (
+                 SELECT r.id       AS role_id,
+                        role_name,
+                        ur.user_id AS uid,
+                        description
+                 FROM cms_admin.cms_role AS r
+                          INNER JOIN cms_user_role_relation AS ur ON
+                     ur.role_id = r.id) AS rr
+             ON
+                         u.id = rr.uid AND
+                         u.id = #{id,jdbcType=INTEGER}
+
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from cms_user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insertCmsUser" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsUser"
+            useGeneratedKeys="true">
+        insert into cms_user (username, `password`, age,
+                              phone, created_by, updated_by, encrypt_key,avatar)
+        values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{age,jdbcType=TINYINT},
+                #{phone,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR},
+                #{encryptKey,jdbcType=VARCHAR},#{avatar,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsUser"
+            useGeneratedKeys="true">
+        insert into cms_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                username,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="createdBy != null">
+                created_by,
+            </if>
+            <if test="updatedBy != null">
+                updated_by,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+            <if test="updatedTime != null">
+                updated_time,
+            </if>
+            <if test="avatar != null">
+                updated_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age,jdbcType=TINYINT},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.CmsUser">
+        update cms_user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=TINYINT},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                created_by = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedBy != null">
+                updated_by = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsUser">
+        update cms_user
+        set username     = #{userName,jdbcType=VARCHAR},
+            `password`   = #{password,jdbcType=VARCHAR},
+            age          = #{age,jdbcType=TINYINT},
+            phone        = #{phone,jdbcType=VARCHAR},
+            created_by   = #{createdBy,jdbcType=VARCHAR},
+            updated_by   = #{updatedBy,jdbcType=VARCHAR},
+            created_time = #{createdTime,jdbcType=TIMESTAMP},
+            created_time = #{createdTime,jdbcType=TIMESTAMP},
+            avatar       = #{avatar,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

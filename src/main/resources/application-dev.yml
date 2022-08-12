@@ -1,0 +1,23 @@
+spring:
+  #  redis:
+  #    host: 127.0.0.1
+  #    port: 6379
+  #    password:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/cms_admin?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 12345678
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/cms-admin
+      database: cms-admin
+
+swagger:
+  enable: true
+
+
+
+cms:
+  admin:
+    host: 127.0.0.1:8848
