@@ -17,8 +17,9 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-#
-#mybatis:
-#  configuration:
-#    # 下划线转驼峰
-#    map-underscore-to-camel-case: true
+
+mybatis:
+  configuration:
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/*.xml

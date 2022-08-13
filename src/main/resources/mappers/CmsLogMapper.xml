@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.admin.mapper.CmsLogMapper">
+    <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsLogEntity">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="operation_type" jdbcType="VARCHAR" property="operationType"/>
+        <result column="request_ip" jdbcType="VARCHAR" property="requestIp"/>
+        <result column="request_url" jdbcType="VARCHAR" property="requestUrl"/>
+        <result column="operation_content" jdbcType="VARCHAR" property="operationContent"/>
+        <result column="operation_userId" jdbcType="VARCHAR" property="operationUserId"/>
+        <result column="operation_time" jdbcType="VARCHAR" property="operationTime"/>
+        <result column="class_method" jdbcType="VARCHAR" property="classMethod"/>
+        <result column="request_params" jdbcType="VARCHAR" property="requestParams"/>
+        <result column="result_msg" jdbcType="VARCHAR" property="resultMsg"/>
+        <result column="time_cost" jdbcType="VARCHAR" property="timeCost"/>
+        <result column="result_code" jdbcType="VARCHAR" property="resultCode"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        ,operation_type, request_ip, request_url, operation_content, operation_userId, operation_time,result_msg,time_cost,result_code
+    </sql>
+
+    <sql id="All_Column_List">
+        id
+        ,operation_type, request_ip, request_url, operation_content, operation_userId, operation_time,
+    class_method, request_params,result_msg,time_cost,result_code
+    </sql>
+
+    <select id="selectBaseLog" resultType="com.cms.admin.entity.CmsLogEntity">
+        select
+        <include refid="Base_Column_List"/>
+        from t_cms_log
+    </select>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsLogEntity"
+            useGeneratedKeys="true">
+        insert into t_cms_log (operation_type, request_ip, request_url,
+                               operation_content, operation_userId, operation_time,
+                               http_method, class_method, request_params, result_msg, time_cost, result_code)
+        values (#{operationType,jdbcType=VARCHAR}, #{requestIp,jdbcType=VARCHAR}, #{requestUrl,jdbcType=VARCHAR},
+                #{operationContent,jdbcType=VARCHAR}, #{operationUserId,jdbcType=VARCHAR},
+                #{operationTime,jdbcType=VARCHAR},
+                #{httpMethod,jdbcType=VARCHAR}, #{classMethod,jdbcType=VARCHAR},
+                #{requestParams,jdbcType=VARCHAR}, #{resultMsg,jdbcType=VARCHAR}, #{timeCost,jdbcType=VARCHAR},
+                #{resultCode,jdbcType=VARCHAR})
+    </insert>
+
+
+</mapper>

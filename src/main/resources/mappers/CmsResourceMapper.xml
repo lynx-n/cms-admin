@@ -19,8 +19,7 @@
         <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id
-        , uuid, file_id, name_cn, md5, icon, suffix, file_type, file_path, file_size, content_type,
+        id, uuid, file_id, name_cn, md5, icon, suffix, file_type, file_path, file_size, content_type,
     created_by, updated_by, created_time, updated_time
     </sql>
     <select id="selectResourceById" parameterType="java.lang.Integer" resultMap="BaseResultMap">

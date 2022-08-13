@@ -1,9 +1,15 @@
 package com.cms.admin.entity;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CmsLogEntity {
-
 
     /**
      * 日志序号
@@ -16,19 +22,20 @@ public class CmsLogEntity {
     private String operationType;
 
     /**
+     * 操作者ip
+     */
+    private String requestIp;
+
+    /**
+     * 调用接口
+     */
+    private String requestUrl;
+
+    /**
      * 操作内容
      */
-    private String operation;
+    private String operationContent;
 
-    /**
-     * 操作结果
-     */
-    private String operationResult;
-
-    /**
-     * 操作者
-     */
-    private String operationUser;
 
     /**
      * 操作者id
@@ -38,5 +45,34 @@ public class CmsLogEntity {
     /**
      * 创建时间
      */
-    private Date operationTime;
+    private String operationTime;
+
+    /**
+     *  http方法 GET POST PUT DELETE PATCH
+     *
+     */
+    private String httpMethod;
+    /**
+     * 类方法
+     */
+    private String classMethod;
+    /**
+     * 请求参数
+     */
+    private String requestParams;
+    /**
+     * 响应结果
+     */
+    private String resultMsg;
+
+    /**
+     * 接口耗时
+     */
+    private Long timeCost;
+
+    /**
+     * 接口响应码
+     */
+    private int resultCode;
+
 }

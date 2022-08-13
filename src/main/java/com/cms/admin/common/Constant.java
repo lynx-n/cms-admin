@@ -67,16 +67,10 @@ public enum Constant {
 
     private String constant;
     private Integer intValue;
-    private String stringValue;
 
 
     Constant(String name) {
         this.constant = name;
-    }
-
-    Constant(String constant, String stringValue) {
-        this.constant = constant;
-        this.stringValue = stringValue;
     }
 
     Constant(int i) {
@@ -92,9 +86,6 @@ public enum Constant {
         return this.intValue;
     }
 
-    public String getStringValue(String constant) {
-        return stringValue;
-    }
 
 
 }
