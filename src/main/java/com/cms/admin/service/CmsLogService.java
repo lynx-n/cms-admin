@@ -21,4 +21,12 @@ public interface CmsLogService {
    * @return 日志基本信息
    */
   PageInfo<CmsLogEntity> listBaseLog(int page, int size);
+
+  /**
+   * 删除多少天前的日志
+   *
+   * @param day 时间
+   * @return 删除个数
+   */
+  int deleteLogByDay(int day);
 }

@@ -16,7 +16,7 @@ public class CmsUserRoleRelationServiceImpl implements CmsUserRoleRelationServic
 
     @Override
     public int insertUserRoleRelation(CmsUserRoleRelation userRoleRelation) {
-        log.info("INSERT USER ROLE RELATION SERVICE [{}]", userRoleRelation.toString());
+        log.info("insert user role relation service [{}]", userRoleRelation.toString());
         return userRoleRelationMapper.insertUserRoleRelation(userRoleRelation);
     }
 }

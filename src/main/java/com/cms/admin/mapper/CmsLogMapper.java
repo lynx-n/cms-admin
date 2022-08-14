@@ -2,6 +2,7 @@ package com.cms.admin.mapper;
 
 import com.cms.admin.entity.CmsLogEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
 public interface CmsLogMapper {
   /**
    * 插入一条日志
+   *
    * @param record 日志
    * @return 成功个数
    */
@@ -16,7 +18,16 @@ public interface CmsLogMapper {
 
   /**
    * 查询基本日志
+   *
    * @return 日志列表
    */
   List<CmsLogEntity> selectBaseLog();
+
+  /**
+   * 删除多少天前的日志
+   *
+   * @param day 时间
+   * @return 删除成功个数
+   */
+  int deleteLogByDay(@Param("day") int day);
 }

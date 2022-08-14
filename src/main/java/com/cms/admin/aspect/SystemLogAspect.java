@@ -2,7 +2,6 @@ package com.cms.admin.aspect;
 
 import com.cms.admin.entity.CmsLogEntity;
 import com.cms.admin.entity.ResponseEntity;
-import com.cms.admin.mapper.CmsLogMapper;
 import com.cms.admin.service.CmsLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -17,10 +16,10 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Slf4j
@@ -49,7 +48,6 @@ public class SystemLogAspect {
     ServletRequestAttributes attributes =
         (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
     HttpServletRequest request = Objects.requireNonNull(attributes).getRequest();
-    HttpServletResponse response = Objects.requireNonNull(attributes).getResponse();
 
     // 获取注解上的值
     MethodSignature signature = (MethodSignature) point.getSignature();
@@ -67,14 +65,14 @@ public class SystemLogAspect {
             .requestUrl(request.getRequestURL().toString())
             .operationType(annotation.type())
             .httpMethod(request.getMethod())
-            .operationTime(new Date(startTime).toInstant().toString())
+            .operationTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(startTime)))
             .requestParams(getParamsAndValue(point).toString())
             .operationContent(annotation.operation())
             .timeCost(System.currentTimeMillis() - startTime)
             .classMethod(
                 point.getSignature().getDeclaringTypeName() + point.getSignature().getName())
             .resultMsg(result.getMsg())
-            .resultCode(response.getStatus())
+            .resultCode(result.getCode())
             .build();
 
     logService.insert(logEntity);

@@ -22,7 +22,7 @@
     <select id="selectCmsUserByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from cms_user
+        from t_cms_user
         where username = #{id,jdbcType=VARCHAR}
     </select>
 
@@ -38,40 +38,40 @@
                updated_time,
                rr.role_id,
                rr.role_name,
-               rr.description
-        FROM cms_user AS u
+               rr.role_description
+        FROM t_cms_user AS u
                  INNER JOIN
 
              (
                  SELECT r.id       AS role_id,
                         role_name,
                         ur.user_id AS uid,
-                        description
-                 FROM cms_admin.cms_role AS r
-                          INNER JOIN cms_user_role_relation AS ur ON
+                        role_description
+                 FROM cms_admin.t_cms_role AS r
+                          INNER JOIN t_cms_user_role_relation AS ur ON
                      ur.role_id = r.id) AS rr
              ON
-                         u.id = rr.uid AND
-                         u.id = #{id,jdbcType=INTEGER}
+                     u.id = rr.uid AND
+                     u.id = #{id,jdbcType=INTEGER}
 
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
-        from cms_user
+        from t_cms_user
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insertCmsUser" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsUser"
             useGeneratedKeys="true">
-        insert into cms_user (username, `password`, age,
-                              phone, created_by, updated_by, encrypt_key,avatar)
+        insert into t_cms_user (username, `password`, age,
+                                phone, created_by, updated_by, encrypt_key, avatar)
         values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{age,jdbcType=TINYINT},
                 #{phone,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR},
-                #{encryptKey,jdbcType=VARCHAR},#{avatar,jdbcType=VARCHAR})
+                #{encryptKey,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsUser"
             useGeneratedKeys="true">
-        insert into cms_user
+        insert into t_cms_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userName != null">
                 username,
@@ -132,7 +132,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.CmsUser">
-        update cms_user
+        update t_cms_user
         <set>
             <if test="userName != null">
                 user_name = #{userName,jdbcType=VARCHAR},
@@ -159,7 +159,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsUser">
-        update cms_user
+        update t_cms_user
         set username     = #{userName,jdbcType=VARCHAR},
             `password`   = #{password,jdbcType=VARCHAR},
             age          = #{age,jdbcType=TINYINT},

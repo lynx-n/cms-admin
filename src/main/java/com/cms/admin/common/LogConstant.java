@@ -5,10 +5,13 @@ package com.cms.admin.common;
  * @date ：Created 2022/8/13 20:38
  * @description：设备信息常量
  */
-public interface DeviceConstant {
+public interface LogConstant {
 
   /** 常亮类型 */
-  String DEVICE_TYPE= "设备";
+  String LOG_TYPE = "日志";
   /** 具体操作 */
-  String QUERY_ALL_DEVICE= "查询全部设备";
+  String QUERY_ALL_LOG = "查询所有日志";
+
+  /** 删除日志 */
+  String DELETE_LOG = "删除日志";
 }

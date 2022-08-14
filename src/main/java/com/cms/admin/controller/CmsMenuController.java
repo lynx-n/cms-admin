@@ -17,12 +17,11 @@ import java.util.List;
 @Api("菜单管理")
 public class CmsMenuController {
 
-    @Resource
-    private CmsMenuService menuService;
+  @Resource private CmsMenuService menuService;
 
-    @GetMapping()
-    public ResponseEntity<Object> getAllMenu() {
-        List<CmsMenuAuthorityEntity> menus = menuService.selectMenus();
-        return ResponseUtils.success(menus);
-    }
+  @GetMapping()
+  public ResponseEntity<Object> getAllMenu() {
+    List<CmsMenuAuthorityEntity> menus = menuService.selectMenus();
+    return ResponseUtils.success(menus);
+  }
 }

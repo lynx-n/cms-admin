@@ -4,33 +4,33 @@
   <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsRole">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="role_description" jdbcType="VARCHAR" property="description" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, role_name, description
+    id, role_name, role_description
   </sql>
   <select id="selectCmsRoleById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from cms_role
+    from t_cms_role
     where id = #{id,jdbcType=INTEGER}
   </select>
 
   <select id="selectCmsRoles"  resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from cms_role
+    from t_cms_role
   </select>
   <delete id="deleteCmsRoleById" parameterType="java.lang.Integer">
-    delete from cms_role
+    delete from t_cms_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insertCmsRole" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsRole" useGeneratedKeys="true">
-    insert into cms_role (role_name, description)
+    insert into t_cms_role (role_name, role_description)
     values (#{roleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsRole" useGeneratedKeys="true">
-    insert into cms_role
+    insert into t_cms_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="roleName != null">
         role_name,
@@ -49,7 +49,7 @@
     </trim>
   </insert>
   <update id="updateCmsRole" parameterType="com.cms.admin.entity.CmsRole">
-    update cms_role
+    update t_cms_role
     <set>
       <if test="roleNme != null">
         role_name = #{role_name,jdbcType=VARCHAR},
@@ -61,7 +61,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsRole">
-    update cms_role
+    update t_cms_role
     set role_name = #{roleName,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

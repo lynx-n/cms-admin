@@ -24,6 +24,6 @@ public interface CmsUserService {
     * @param id
     * @return
     */
-   CmsUserVO selectCmsUserVOById(Integer id);
+   CmsUserVO selectCmsUserById(Integer id);
 
 }

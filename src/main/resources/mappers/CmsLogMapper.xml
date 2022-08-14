@@ -32,6 +32,13 @@
         from t_cms_log
     </select>
 
+    <delete id="deleteLogByDay">
+        delete
+        from t_cms_log
+        where operation_time <![CDATA[ <= ]]> DATE (DATE_SUB(NOW()
+            , INTERVAL #{day} DAY))
+    </delete>
+
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsLogEntity"
             useGeneratedKeys="true">
         insert into t_cms_log (operation_type, request_ip, request_url,

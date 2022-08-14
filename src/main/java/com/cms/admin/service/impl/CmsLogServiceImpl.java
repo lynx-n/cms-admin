@@ -30,9 +30,13 @@ public class CmsLogServiceImpl implements CmsLogService {
 
   @Override
   public PageInfo<CmsLogEntity> listBaseLog(int page, int size) {
-    log.info("list base log,pageNumber:{},pageSize:{}", page, size);
     PageHelper.startPage(page, size);
     List<CmsLogEntity> baseLog = logMapper.selectBaseLog();
     return new PageInfo<>(baseLog);
+  }
+
+  @Override
+  public int deleteLogByDay(int day) {
+    return logMapper.deleteLogByDay(day);
   }
 }

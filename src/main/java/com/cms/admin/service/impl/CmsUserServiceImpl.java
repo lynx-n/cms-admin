@@ -13,23 +13,21 @@ import javax.annotation.Resource;
 @Slf4j
 public class CmsUserServiceImpl implements CmsUserService {
 
-    @Resource
-    private CmsUserMapper userMapper;
+  @Resource private CmsUserMapper userMapper;
 
-    @Override
-    public CmsUser selectCmsUserByUsername(String username) {
+  @Override
+  public CmsUser selectCmsUserByUsername(String username) {
+    return userMapper.selectCmsUserByUsername(username);
+  }
 
-        return userMapper.selectCmsUserByUsername(username);
-    }
+  @Override
+  public int insertCmsUser(CmsUser cmsUser) {
+    log.info("enter insert cms user service");
+    return userMapper.insertCmsUser(cmsUser);
+  }
 
-    @Override
-    public int insertCmsUser(CmsUser cmsUser) {
-        log.info("ENTER INSERT CMS USER SERVICE");
-        return userMapper.insertCmsUser(cmsUser);
-    }
-
-    @Override
-    public CmsUserVO selectCmsUserVOById(Integer id) {
-        return userMapper.selectCmsUserVOById(id);
-    }
+  @Override
+  public CmsUserVO selectCmsUserById(Integer id) {
+    return userMapper.selectCmsUserVOById(id);
+  }
 }

@@ -25,10 +25,8 @@ public class CmsDeviceController {
 
   @ApiOperation("设备列表-分页查询")
   @GetMapping("/{page}/{size}")
-  @SystemLog(
-      type = DeviceConstant.DEVICE_TYPE,
-      operation = DeviceConstant.DEVICE_QUERY_ALL_OPERATION)
-  public ResponseEntity<Object> getAllDevice(
+  @SystemLog(type = DeviceConstant.DEVICE_TYPE, operation = DeviceConstant.QUERY_ALL_DEVICE)
+  public ResponseEntity<PageInfo<CmsDevice>> getAllDevice(
       @PathVariable(value = "page") Integer page, @PathVariable("size") Integer size) {
     log.info("query all device, pageNumber:{} pageSize:{}", page, size);
     PageInfo<CmsDevice> cmsDevicePageInfo = deviceService.selectDevices(page, size);

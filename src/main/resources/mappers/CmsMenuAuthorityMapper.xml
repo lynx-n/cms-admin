@@ -20,39 +20,39 @@
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from cms_menu_authority
+        from t_cms_menu_authority
         where id = #{id,jdbcType=INTEGER}
     </select>
 
     <select id="selectMenuByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from cms_menu_authority
+        from t_cms_menu_authority
         where pid = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectMenus" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from cms_menu_authority
+        from t_cms_menu_authority
         where pid = 0
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
-        from cms_menu_authority
+        from t_cms_menu_authority
         where id = #{id,jdbcType=INTEGER}
     </delete>
 
 
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity"
             useGeneratedKeys="true">
-        insert into cms_menu_authority (menu_path, menu_description, component,
+        insert into t_cms_menu_authority (menu_path, menu_description, component,
                                         hidden, menu_name, meta,pid)
         values (#{menuPath,jdbcType=VARCHAR}, #{menuDescription,jdbcType=VARCHAR}, #{component,jdbcType=VARCHAR},
                 #{hidden,jdbcType=BOOLEAN}, #{menuName,jdbcType=VARCHAR}, #{meta,jdbcType=VARCHAR},#{pid,jdbcType=INTEGER})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity" useGeneratedKeys="true">
-        insert into cms_menu_authority
+        insert into t_cms_menu_authority
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="menuPath != null">
                 menu_path,
@@ -101,7 +101,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity">
-        update cms_menu_authority
+        update t_cms_menu_authority
         <set>
             <if test="menuPath != null">
                 menu_path = #{menuPath,jdbcType=VARCHAR},
@@ -128,7 +128,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsMenuAuthorityEntity">
-        update cms_menu_authority
+        update t_cms_menu_authority
         set menu_path        = #{menuPath,jdbcType=VARCHAR},
             menu_description = #{menuDescription,jdbcType=VARCHAR},
             component        = #{component,jdbcType=VARCHAR},
