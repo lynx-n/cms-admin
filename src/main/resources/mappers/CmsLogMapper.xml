@@ -26,10 +26,19 @@
     class_method, request_params,result_msg,time_cost,result_code
     </sql>
 
-    <select id="selectBaseLog" resultType="com.cms.admin.entity.CmsLogEntity">
+    <select id="selectBaseLog" resultType="com.cms.admin.entity.CmsLogEntity"
+            parameterType="com.cms.admin.request.LogSearchRequest">
         select
         <include refid="Base_Column_List"/>
         from t_cms_log
+        <where>
+            <if test="operationType!=null">
+                operation_type=#{operationType}
+            </if>
+            <if test="operationContent!=null">
+                operation_content = #{operationContent}
+            </if>
+        </where>
     </select>
 
     <delete id="deleteLogByDay">

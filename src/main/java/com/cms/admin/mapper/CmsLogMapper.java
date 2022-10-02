@@ -1,6 +1,7 @@
 package com.cms.admin.mapper;
 
 import com.cms.admin.entity.CmsLogEntity;
+import com.cms.admin.request.LogSearchRequest;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -21,7 +22,7 @@ public interface CmsLogMapper {
    *
    * @return 日志列表
    */
-  List<CmsLogEntity> selectBaseLog();
+  List<CmsLogEntity> selectBaseLog(LogSearchRequest request);
 
   /**
    * 删除多少天前的日志

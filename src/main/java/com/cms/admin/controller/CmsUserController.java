@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 @RequestMapping("/api/v1/user")
 @Api(value = "用户管理", tags = "用户管理")
 @Slf4j
-public class UserController {
+public class CmsUserController {
 
   @Resource private CmsUserService userService;
 

@@ -1,6 +1,7 @@
 package com.cms.admin.service;
 
 import com.cms.admin.entity.CmsDevice;
+import com.cms.admin.request.DeviceSearchRequest;
 import com.github.pagehelper.PageInfo;
 
 public interface CmsDeviceService {
@@ -8,9 +9,5 @@ public interface CmsDeviceService {
 
     CmsDevice addDevice(CmsDevice device);
 
-    PageInfo<CmsDevice>  selectDevicesById(Integer id,int page, int size);
-
-    PageInfo<CmsDevice>  selectDevicesByIp(String ip,int page, int size);
-
-    PageInfo<CmsDevice>  selectDevicesByMac(String mac,int page, int size);
+    PageInfo<CmsDevice>  searchDevices(DeviceSearchRequest request);
 }

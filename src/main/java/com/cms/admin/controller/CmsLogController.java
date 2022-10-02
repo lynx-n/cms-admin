@@ -5,6 +5,7 @@ import com.cms.admin.common.LogConstant;
 import com.cms.admin.common.ResponseUtils;
 import com.cms.admin.entity.CmsLogEntity;
 import com.cms.admin.entity.ResponseEntity;
+import com.cms.admin.request.LogSearchRequest;
 import com.cms.admin.service.CmsLogService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
@@ -27,10 +28,9 @@ public class CmsLogController {
   @ApiOperation("日志信息-分页查询")
   @GetMapping("/{page}/{size}")
   @SystemLog(type = LogConstant.LOG_TYPE, operation = LogConstant.QUERY_ALL_LOG)
-  public ResponseEntity<PageInfo<CmsLogEntity>> listLogs(
-      @PathVariable(value = "page") Integer page, @PathVariable("size") Integer size) {
-    log.info("query all logs, pageNumber:{} pageSize:{}", page, size);
-    PageInfo<CmsLogEntity> logInfo = logService.listBaseLog(page, size);
+  public ResponseEntity<PageInfo<CmsLogEntity>> searchLogs(LogSearchRequest request) {
+    log.info("searchLogs,params is {}", request);
+    PageInfo<CmsLogEntity> logInfo = logService.searchBaseLog(request);
     return ResponseUtils.success(logInfo);
   }
 

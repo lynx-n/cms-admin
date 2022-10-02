@@ -3,6 +3,7 @@ package com.cms.admin.service.impl;
 import com.cms.admin.entity.CmsDevice;
 import com.cms.admin.entity.CmsLogEntity;
 import com.cms.admin.mapper.CmsLogMapper;
+import com.cms.admin.request.LogSearchRequest;
 import com.cms.admin.service.CmsLogService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -29,9 +30,9 @@ public class CmsLogServiceImpl implements CmsLogService {
   }
 
   @Override
-  public PageInfo<CmsLogEntity> listBaseLog(int page, int size) {
-    PageHelper.startPage(page, size);
-    List<CmsLogEntity> baseLog = logMapper.selectBaseLog();
+  public PageInfo<CmsLogEntity> searchBaseLog(LogSearchRequest request) {
+    PageHelper.startPage(request.getPageNo(), request.getPageSize());
+    List<CmsLogEntity> baseLog = logMapper.selectBaseLog(request);
     return new PageInfo<>(baseLog);
   }
 

@@ -24,12 +24,6 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
 
-    <select id="selectMenuByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from t_cms_menu_authority
-        where pid = #{id,jdbcType=INTEGER}
-    </select>
     <select id="selectMenus" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

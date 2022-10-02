@@ -3,15 +3,15 @@ package com.cms.admin.controller;
 import com.cms.admin.aspect.SystemLog;
 import com.cms.admin.common.DeviceConstant;
 import com.cms.admin.common.ResponseUtils;
-import com.cms.admin.common.UUIDUtils;
 import com.cms.admin.entity.CmsDevice;
 import com.cms.admin.entity.ResponseEntity;
+import com.cms.admin.request.DeviceSearchRequest;
 import com.cms.admin.service.CmsDeviceService;
 import com.github.pagehelper.PageInfo;
-import com.sun.istack.internal.NotNull;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -36,44 +36,15 @@ public class CmsDeviceController {
   @ApiOperation("添加设备")
   @PostMapping("")
   public ResponseEntity<Object> addDevice(@RequestBody CmsDevice device) {
-    String ip = device.getDeviceIp();
-    String mac = device.getDeviceMac();
-    String position = device.getDevicePosition();
-    device.setCreatedBy("liyang");
-    device.setUpdatedBy("liyang");
-    // 校验
-    device.setDeviceNumber(UUIDUtils.getDeviceId());
     CmsDevice device1 = deviceService.addDevice(device);
     return ResponseUtils.success(device1);
   }
 
-  @ApiOperation("通过设备id查询-分页查询")
-  @GetMapping("{id}/{page}/{size}")
-  public ResponseEntity<Object> selectDeviceById(
-      @PathVariable("id") Integer id,
-      @PathVariable("page") Integer page,
-      @PathVariable("size") Integer size) {
-    PageInfo<CmsDevice> devices = deviceService.selectDevicesById(id, page, size);
-    return ResponseUtils.success(devices);
-  }
-
-  @ApiOperation("通过ip查询-分页查询")
-  @GetMapping("{ip}/{page}/{size}")
-  public ResponseEntity<Object> selectDeviceByIp(
-      @PathVariable("ip") String ip,
-      @PathVariable("page") Integer page,
-      @PathVariable("size") Integer size) {
-    PageInfo<CmsDevice> devices = deviceService.selectDevicesByIp(ip, page, size);
-    return ResponseUtils.success(devices);
-  }
-
-  @ApiOperation("通过mac查询-分页查询")
-  @GetMapping("{mac}/{page}/{size}")
-  public ResponseEntity<Object> selectDeviceByMac(
-      @PathVariable("mac") String mac,
-      @PathVariable("page") Integer page,
-      @PathVariable("size") Integer size) {
-    PageInfo<CmsDevice> devices = deviceService.selectDevicesByIp(mac, page, size);
+  @ApiOperation("设备查询-多条件查询")
+  @GetMapping()
+  public ResponseEntity<Object> searchDevice(@Validated DeviceSearchRequest request) {
+    log.info("device request params:{}", request);
+    PageInfo<CmsDevice> devices = deviceService.searchDevices(request);
     return ResponseUtils.success(devices);
   }
 }

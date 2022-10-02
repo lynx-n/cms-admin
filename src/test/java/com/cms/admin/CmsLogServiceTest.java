@@ -18,8 +18,4 @@ public class CmsLogServiceTest {
 
   @Resource private CmsLogService logService;
 
-  @Test
-  public void queryBaseLogTest() {
-    logService.listBaseLog(0, 10);
-  }
 }

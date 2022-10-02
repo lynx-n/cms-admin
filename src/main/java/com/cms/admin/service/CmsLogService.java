@@ -2,6 +2,7 @@ package com.cms.admin.service;
 
 import com.cms.admin.entity.CmsDevice;
 import com.cms.admin.entity.CmsLogEntity;
+import com.cms.admin.request.LogSearchRequest;
 import com.github.pagehelper.PageInfo;
 
 public interface CmsLogService {
@@ -14,13 +15,10 @@ public interface CmsLogService {
   int insert(CmsLogEntity record);
 
   /**
-   * 查询基本日志
-   *
-   * @param page 页数
-   * @param size 页面个数
-   * @return 日志基本信息
+   * @param request 日志请求
+   * @return 日志信息
    */
-  PageInfo<CmsLogEntity> listBaseLog(int page, int size);
+  PageInfo<CmsLogEntity> searchBaseLog(LogSearchRequest request);
 
   /**
    * 删除多少天前的日志

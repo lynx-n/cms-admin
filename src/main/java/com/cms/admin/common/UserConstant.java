@@ -11,6 +11,7 @@ public interface UserConstant {
 
   /** 用户角色 */
   String USER_ROLE_TYPE = "用户角色";
+
   /** 插入用户角色 */
   String USER_ROlE_INSERT = "插入角色";
 

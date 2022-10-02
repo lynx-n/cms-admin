@@ -17,11 +17,6 @@ public class CmsLogTest {
   @Resource private CmsLogController cmsLogController;
 
   @Test
-  public void queryLogTest() {
-    cmsLogController.listLogs(0, 10);
-  }
-
-  @Test
   public void deleteLogTest() {
     cmsLogController.deleteLogByDay(2);
   }
