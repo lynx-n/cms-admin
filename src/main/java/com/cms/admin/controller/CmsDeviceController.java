@@ -3,7 +3,7 @@ package com.cms.admin.controller;
 import com.cms.admin.aspect.SystemLog;
 import com.cms.admin.common.DeviceConstant;
 import com.cms.admin.common.ResponseUtils;
-import com.cms.admin.entity.CmsDevice;
+import com.cms.admin.entity.DeviceEntity;
 import com.cms.admin.entity.ResponseEntity;
 import com.cms.admin.request.DeviceSearchRequest;
 import com.cms.admin.service.CmsDeviceService;
@@ -26,17 +26,17 @@ public class CmsDeviceController {
   @ApiOperation("设备列表-分页查询")
   @GetMapping("/{page}/{size}")
   @SystemLog(type = DeviceConstant.DEVICE_TYPE, operation = DeviceConstant.QUERY_ALL_DEVICE)
-  public ResponseEntity<PageInfo<CmsDevice>> getAllDevice(
+  public ResponseEntity<PageInfo<DeviceEntity>> getAllDevice(
       @PathVariable(value = "page") Integer page, @PathVariable("size") Integer size) {
     log.info("query all device, pageNumber:{} pageSize:{}", page, size);
-    PageInfo<CmsDevice> cmsDevicePageInfo = deviceService.selectDevices(page, size);
+    PageInfo<DeviceEntity> cmsDevicePageInfo = deviceService.selectDevices(page, size);
     return ResponseUtils.success(cmsDevicePageInfo);
   }
 
   @ApiOperation("添加设备")
   @PostMapping("")
-  public ResponseEntity<Object> addDevice(@RequestBody CmsDevice device) {
-    CmsDevice device1 = deviceService.addDevice(device);
+  public ResponseEntity<Object> addDevice(@RequestBody DeviceEntity device) {
+    DeviceEntity device1 = deviceService.addDevice(device);
     return ResponseUtils.success(device1);
   }
 
@@ -44,7 +44,7 @@ public class CmsDeviceController {
   @GetMapping()
   public ResponseEntity<Object> searchDevice(@Validated DeviceSearchRequest request) {
     log.info("device request params:{}", request);
-    PageInfo<CmsDevice> devices = deviceService.searchDevices(request);
+    PageInfo<DeviceEntity> devices = deviceService.searchDevices(request);
     return ResponseUtils.success(devices);
   }
 }

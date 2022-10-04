@@ -18,7 +18,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CmsUser implements Serializable {
+public class UserEntity implements Serializable {
 
   private Integer id;
 

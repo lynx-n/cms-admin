@@ -1,6 +1,6 @@
 package com.cms.admin.service.impl;
 
-import com.cms.admin.entity.CmsRole;
+import com.cms.admin.entity.RoleEntity;
 import com.cms.admin.mapper.CmsRoleMapper;
 import com.cms.admin.service.CmsRoleService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,17 +17,17 @@ public class CmsRoleServiceImpl implements CmsRoleService {
 
 
     @Override
-    public CmsRole selectCmsRoleById(Integer id) {
+    public RoleEntity selectCmsRoleById(Integer id) {
         return roleMapper.selectCmsRoleById(id);
     }
 
     @Override
-    public List<CmsRole> selectCmsRoles() {
+    public List<RoleEntity> selectCmsRoles() {
         return roleMapper.selectCmsRoles();
     }
 
     @Override
-    public int updateCmsRole(CmsRole role) {
+    public int updateCmsRole(RoleEntity role) {
         log.info("UPDATE CMS ROLE :{}", role.toString());
         return roleMapper.updateCmsRole(role);
     }
@@ -38,7 +38,7 @@ public class CmsRoleServiceImpl implements CmsRoleService {
     }
 
     @Override
-    public CmsRole insertCmsRole(CmsRole role) {
+    public RoleEntity insertCmsRole(RoleEntity role) {
         roleMapper.insertCmsRole(role);
         return role;
     }

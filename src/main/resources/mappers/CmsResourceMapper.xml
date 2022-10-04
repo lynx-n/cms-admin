@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cms.admin.mapper.CmsResourceMapper">
-    <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsResource">
+    <resultMap id="BaseResultMap" type="com.cms.admin.entity.ResourceEntity">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="uuid" jdbcType="VARCHAR" property="uuid"/>
         <result column="file_id" jdbcType="VARCHAR" property="fileId"/>
@@ -54,7 +54,7 @@
         from cms_resource
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insertCmsResource" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsResource"
+    <insert id="insertCmsResource" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.ResourceEntity"
             useGeneratedKeys="true">
         insert into cms_resource (uuid, file_id, name_cn,
                                   md5, icon, suffix,
@@ -66,7 +66,7 @@
                 #{contentType,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR},
                 #{width,jdbcType=INTEGER}, #{height,jdbcType=INTEGER})
     </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsResource"
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.ResourceEntity"
             useGeneratedKeys="true">
         insert into cms_resource
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -158,7 +158,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateCmsResourceSelective" parameterType="com.cms.admin.entity.CmsResource">
+    <update id="updateCmsResourceSelective" parameterType="com.cms.admin.entity.ResourceEntity">
         update cms_resource
         <set>
             <if test="uuid != null">
@@ -206,7 +206,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateCmsResource" parameterType="com.cms.admin.entity.CmsResource">
+    <update id="updateCmsResource" parameterType="com.cms.admin.entity.ResourceEntity">
         update cms_resource
         set uuid         = #{uuid,jdbcType=VARCHAR},
             file_id      = #{fileId,jdbcType=VARCHAR},

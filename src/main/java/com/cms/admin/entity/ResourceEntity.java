@@ -10,7 +10,7 @@ import java.util.Date;
  * @author 
  */
 @Data
-public class CmsResource implements Serializable {
+public class ResourceEntity implements Serializable {
     /**
      * 主键id
      */

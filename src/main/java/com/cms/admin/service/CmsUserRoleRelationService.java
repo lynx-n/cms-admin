@@ -1,6 +1,6 @@
 package com.cms.admin.service;
 
-import com.cms.admin.entity.CmsUserRoleRelation;
+import com.cms.admin.entity.UserRoleRelation;
 
 public interface CmsUserRoleRelationService {
     /**
@@ -8,5 +8,5 @@ public interface CmsUserRoleRelationService {
      * @param userRoleRelation
      * @return
      */
-    int insertUserRoleRelation(CmsUserRoleRelation userRoleRelation);
+    int insertUserRoleRelation(UserRoleRelation userRoleRelation);
 }

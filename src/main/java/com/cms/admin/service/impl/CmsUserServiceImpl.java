@@ -1,6 +1,6 @@
 package com.cms.admin.service.impl;
 
-import com.cms.admin.entity.CmsUser;
+import com.cms.admin.entity.UserEntity;
 import com.cms.admin.mapper.CmsUserMapper;
 import com.cms.admin.service.CmsUserService;
 import com.cms.admin.vo.CmsUserVO;
@@ -16,14 +16,14 @@ public class CmsUserServiceImpl implements CmsUserService {
   @Resource private CmsUserMapper userMapper;
 
   @Override
-  public CmsUser selectCmsUserByUsername(String username) {
+  public UserEntity selectCmsUserByUsername(String username) {
     return userMapper.selectCmsUserByUsername(username);
   }
 
   @Override
-  public int insertCmsUser(CmsUser cmsUser) {
+  public int insertCmsUser(UserEntity userEntity) {
     log.info("enter insert cms user service");
-    return userMapper.insertCmsUser(cmsUser);
+    return userMapper.insertCmsUser(userEntity);
   }
 
   @Override

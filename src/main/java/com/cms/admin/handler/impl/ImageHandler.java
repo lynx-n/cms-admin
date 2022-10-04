@@ -4,7 +4,7 @@ import com.cms.admin.common.Constant;
 import com.cms.admin.common.FfmpegUtils;
 import com.cms.admin.common.LocalFileUtils;
 import com.cms.admin.common.UUIDUtils;
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.handler.AbstractHandler;
 import com.cms.admin.service.CmsResourceService;
 import lombok.extern.slf4j.Slf4j;
@@ -37,9 +37,9 @@ public class ImageHandler extends AbstractHandler {
   }
 
   @Override
-  public CmsResource dealResource(File file, String contentType) {
+  public ResourceEntity dealResource(File file, String contentType) {
     // 1-封装resource的基本信息
-    CmsResource resource = new CmsResource();
+    ResourceEntity resource = new ResourceEntity();
     // 2-md5处理 防止文件重复上传
     try (FileInputStream inputStream = new FileInputStream(file)) {
       String md5 = DigestUtils.md5DigestAsHex(inputStream);

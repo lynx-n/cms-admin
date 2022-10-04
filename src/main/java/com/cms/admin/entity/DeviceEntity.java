@@ -11,7 +11,7 @@ import java.util.Date;
  * @author
  */
 @Data
-public class CmsDevice implements Serializable {
+public class DeviceEntity implements Serializable {
     /**
      * 设备主键id
      */

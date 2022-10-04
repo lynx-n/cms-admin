@@ -1,7 +1,7 @@
 package com.cms.admin.handler;
 
 import com.cms.admin.common.Constant;
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.service.MongoService;
 import org.springframework.stereotype.Component;
 
@@ -22,12 +22,12 @@ public abstract class AbstractHandler implements BaseHandler {
    *
    * @return
    */
-  public String saveToStore(File file, CmsResource cmsResource) {
+  public String saveToStore(File file, ResourceEntity resourceEntity) {
     String objectId = "";
     if (file.length() >= Constant.FILE_SIZE_16M.getIntValue()) {
-      objectId = mongoService.saveBigFile(file, cmsResource);
+      objectId = mongoService.saveBigFile(file, resourceEntity);
     } else {
-      objectId = mongoService.saveSmallFile(file, cmsResource);
+      objectId = mongoService.saveSmallFile(file, resourceEntity);
     }
     return objectId;
   }

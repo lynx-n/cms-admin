@@ -1,6 +1,6 @@
 package com.cms.admin.service.impl;
 
-import com.cms.admin.entity.CmsDevice;
+import com.cms.admin.entity.DeviceEntity;
 import com.cms.admin.mapper.CmsDeviceMapper;
 import com.cms.admin.request.DeviceSearchRequest;
 import com.cms.admin.service.CmsDeviceService;
@@ -17,22 +17,22 @@ public class CmsDeviceImpl implements CmsDeviceService {
   @Autowired private CmsDeviceMapper deviceMapper;
 
   @Override
-  public PageInfo<CmsDevice> selectDevices(int page, int size) {
+  public PageInfo<DeviceEntity> selectDevices(int page, int size) {
     PageHelper.startPage(page, size);
-    List<CmsDevice> devices = deviceMapper.selectDevices();
+    List<DeviceEntity> devices = deviceMapper.selectDevices();
     return new PageInfo<>(devices);
   }
 
   @Override
-  public CmsDevice addDevice(CmsDevice device) {
+  public DeviceEntity addDevice(DeviceEntity device) {
     deviceMapper.insert(device);
     return device;
   }
 
   @Override
-  public PageInfo<CmsDevice> searchDevices(DeviceSearchRequest request) {
+  public PageInfo<DeviceEntity> searchDevices(DeviceSearchRequest request) {
     PageHelper.startPage(request.getPageNo(), request.getPageSize());
-    List<CmsDevice> cmsDevices = deviceMapper.searchDevices(request);
-    return new PageInfo<>(cmsDevices);
+    List<DeviceEntity> deviceEntities = deviceMapper.searchDevices(request);
+    return new PageInfo<>(deviceEntities);
   }
 }

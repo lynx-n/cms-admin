@@ -1,7 +1,7 @@
 package com.cms.admin.filter;
 
 import com.cms.admin.common.Constant;
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.service.CmsResourceService;
 import com.cms.admin.service.MongoService;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +40,7 @@ public class FileFilter implements Filter {
             if (uri != null && uri.contains(Constant.CMS_STORAGE.getValue())) {
                 // 下载资源
                 String uuid = getUuid(uri);
-                CmsResource resource = resourceService.selectResourceByUuid(uuid);
+                ResourceEntity resource = resourceService.selectResourceByUuid(uuid);
                 if (uuid == null || resource == null) {
                     httpResponse.setStatus(scNotFound);
                     return;

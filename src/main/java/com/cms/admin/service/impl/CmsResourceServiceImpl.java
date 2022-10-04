@@ -1,6 +1,6 @@
 package com.cms.admin.service.impl;
 
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.mapper.CmsResourceMapper;
 import com.cms.admin.service.CmsResourceService;
 import com.github.pagehelper.PageHelper;
@@ -17,25 +17,25 @@ public class CmsResourceServiceImpl implements CmsResourceService {
     CmsResourceMapper resourceMapper;
 
     @Override
-    public int insertCmsResource(CmsResource resource) {
+    public int insertCmsResource(ResourceEntity resource) {
         return resourceMapper.insertCmsResource(resource);
     }
 
     @Override
-    public CmsResource selectResourceByMD5(String md5) {
+    public ResourceEntity selectResourceByMD5(String md5) {
         return resourceMapper.selectResourceByMD5(md5);
     }
 
     @Override
-    public CmsResource selectResourceByUuid(String uuid) {
+    public ResourceEntity selectResourceByUuid(String uuid) {
         return resourceMapper.selectResourceByUuid(uuid);
     }
 
     @Override
-    public PageInfo<CmsResource> selectResourcePage(int page, int size) {
+    public PageInfo<ResourceEntity> selectResourcePage(int page, int size) {
         PageHelper.startPage(page, size);
-        List<CmsResource> resources = resourceMapper.selectResources();
-        PageInfo<CmsResource> pageInfo = new PageInfo<>(resources);
+        List<ResourceEntity> resources = resourceMapper.selectResources();
+        PageInfo<ResourceEntity> pageInfo = new PageInfo<>(resources);
         return pageInfo;
     }
 

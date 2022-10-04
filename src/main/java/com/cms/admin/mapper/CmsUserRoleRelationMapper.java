@@ -1,6 +1,6 @@
 package com.cms.admin.mapper;
 
-import com.cms.admin.entity.CmsUserRoleRelation;
+import com.cms.admin.entity.UserRoleRelation;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -12,13 +12,13 @@ public interface CmsUserRoleRelationMapper {
      * @param userRoleRelation
      * @return
      */
-    int insertUserRoleRelation(CmsUserRoleRelation userRoleRelation);
+    int insertUserRoleRelation(UserRoleRelation userRoleRelation);
 
-    int insertSelective(CmsUserRoleRelation record);
+    int insertSelective(UserRoleRelation record);
 
-    CmsUserRoleRelation selectByPrimaryKey(Integer id);
+    UserRoleRelation selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(CmsUserRoleRelation record);
+    int updateByPrimaryKeySelective(UserRoleRelation record);
 
-    int updateByPrimaryKey(CmsUserRoleRelation record);
+    int updateByPrimaryKey(UserRoleRelation record);
 }

@@ -1,6 +1,6 @@
 package com.cms.admin.mapper;
 
-import com.cms.admin.entity.CmsRole;
+import com.cms.admin.entity.RoleEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.List;
 public interface CmsRoleMapper {
     int deleteCmsRoleById(Integer id);
 
-    int insertCmsRole(CmsRole record);
+    int insertCmsRole(RoleEntity record);
 
-    int insertSelective(CmsRole record);
+    int insertSelective(RoleEntity record);
 
-    CmsRole selectCmsRoleById(Integer id);
+    RoleEntity selectCmsRoleById(Integer id);
 
-    List<CmsRole> selectCmsRoles();
+    List<RoleEntity> selectCmsRoles();
 
-    int updateCmsRole(CmsRole record);
+    int updateCmsRole(RoleEntity record);
 
-    int updateByPrimaryKey(CmsRole record);
+    int updateByPrimaryKey(RoleEntity record);
 }

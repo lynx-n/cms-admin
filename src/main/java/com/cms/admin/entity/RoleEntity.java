@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author 
  */
 @Data
-public class CmsRole implements Serializable {
+public class RoleEntity implements Serializable {
 
 
     private Integer id;

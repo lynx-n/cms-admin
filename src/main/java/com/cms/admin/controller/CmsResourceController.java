@@ -4,7 +4,7 @@ import com.cms.admin.common.Constant;
 import com.cms.admin.common.FileConstant;
 import com.cms.admin.common.LocalFileUtils;
 import com.cms.admin.common.ResponseUtils;
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.entity.ResponseEntity;
 import com.cms.admin.handler.AbstractHandlerFactory;
 import com.cms.admin.service.CmsResourceService;
@@ -19,7 +19,7 @@ import javax.websocket.server.PathParam;
 import java.io.File;
 
 /**
- * @author greatli @ClassName CmsResourceController.java @Description 资源处理
+ * @author greatli
  * @createTime 2021年12月26日 10:18:00
  */
 @RestController
@@ -35,7 +35,7 @@ public class CmsResourceController {
   @GetMapping("/{page}/{size}")
   public ResponseEntity<Object> selectResourcePage(
       @PathVariable("page") Integer page, @PathVariable("size") Integer size) {
-    PageInfo<CmsResource> pageInfo = resourceService.selectResourcePage(page, size);
+    PageInfo<ResourceEntity> pageInfo = resourceService.selectResourcePage(page, size);
     return ResponseUtils.success(pageInfo);
   }
 
@@ -50,7 +50,7 @@ public class CmsResourceController {
     File localFile = LocalFileUtils.transMultipartFileToFile(file);
 
     // 2： 处理不同的文件
-    CmsResource resource =
+    ResourceEntity resource =
         factory
             .getHandlerBean(FileConstant.fileMap.get(fileType))
             .dealResource(localFile, file.getContentType());

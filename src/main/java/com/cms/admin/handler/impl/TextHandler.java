@@ -1,6 +1,6 @@
 package com.cms.admin.handler.impl;
 
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.handler.AbstractHandler;
 import org.springframework.stereotype.Component;
 
@@ -18,9 +18,9 @@ public class TextHandler extends AbstractHandler {
   }
 
   @Override
-  public CmsResource dealResource(File file, String contentType) {
+  public ResourceEntity dealResource(File file, String contentType) {
     // 1-封装resource的基本信息
-    CmsResource resource = new CmsResource();
+    ResourceEntity resource = new ResourceEntity();
     return resource;
   }
 }

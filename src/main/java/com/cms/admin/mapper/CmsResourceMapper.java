@@ -1,6 +1,6 @@
 package com.cms.admin.mapper;
 
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,19 +9,19 @@ import java.util.List;
 public interface CmsResourceMapper {
     int deleteResourceById(Integer id);
 
-    int insertCmsResource(CmsResource resource);
+    int insertCmsResource(ResourceEntity resource);
 
-    int insertSelective(CmsResource record);
+    int insertSelective(ResourceEntity record);
 
-    CmsResource selectResourceById(Integer id);
+    ResourceEntity selectResourceById(Integer id);
 
-    CmsResource selectResourceByMD5(String md5);
+    ResourceEntity selectResourceByMD5(String md5);
 
-    CmsResource selectResourceByUuid(String uuid);
+    ResourceEntity selectResourceByUuid(String uuid);
 
-    List<CmsResource> selectResources();
+    List<ResourceEntity> selectResources();
 
-    int updateCmsResourceSelective(CmsResource record);
+    int updateCmsResourceSelective(ResourceEntity record);
 
-    int updateCmsResource(CmsResource record);
+    int updateCmsResource(ResourceEntity record);
 }

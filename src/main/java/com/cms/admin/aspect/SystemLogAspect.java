@@ -1,6 +1,6 @@
 package com.cms.admin.aspect;
 
-import com.cms.admin.entity.CmsLogEntity;
+import com.cms.admin.entity.LogEntity;
 import com.cms.admin.entity.ResponseEntity;
 import com.cms.admin.service.CmsLogService;
 import lombok.extern.slf4j.Slf4j;
@@ -59,8 +59,8 @@ public class SystemLogAspect {
     ResponseEntity result = (ResponseEntity) point.proceed();
 
     // 构造日志
-    CmsLogEntity logEntity =
-        CmsLogEntity.builder()
+    LogEntity logEntity =
+        LogEntity.builder()
             .requestIp(getIp(request))
             .requestUrl(request.getRequestURL().toString())
             .operationType(annotation.type())

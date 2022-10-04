@@ -3,7 +3,7 @@ package com.cms.admin.controller;
 import com.cms.admin.aspect.SystemLog;
 import com.cms.admin.common.LogConstant;
 import com.cms.admin.common.ResponseUtils;
-import com.cms.admin.entity.CmsLogEntity;
+import com.cms.admin.entity.LogEntity;
 import com.cms.admin.entity.ResponseEntity;
 import com.cms.admin.request.LogSearchRequest;
 import com.cms.admin.service.CmsLogService;
@@ -28,9 +28,9 @@ public class CmsLogController {
   @ApiOperation("日志信息-分页查询")
   @GetMapping("/{page}/{size}")
   @SystemLog(type = LogConstant.LOG_TYPE, operation = LogConstant.QUERY_ALL_LOG)
-  public ResponseEntity<PageInfo<CmsLogEntity>> searchLogs(LogSearchRequest request) {
+  public ResponseEntity<PageInfo<LogEntity>> searchLogs(LogSearchRequest request) {
     log.info("searchLogs,params is {}", request);
-    PageInfo<CmsLogEntity> logInfo = logService.searchBaseLog(request);
+    PageInfo<LogEntity> logInfo = logService.searchBaseLog(request);
     return ResponseUtils.success(logInfo);
   }
 

@@ -1,6 +1,6 @@
 package com.cms.admin.handler;
 
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 
 import java.io.File;
 
@@ -18,5 +18,5 @@ public interface BaseHandler {
      * 文件处理
      * @param file
      */
-    CmsResource dealResource(File file,String contentType);
+    ResourceEntity dealResource(File file, String contentType);
 }

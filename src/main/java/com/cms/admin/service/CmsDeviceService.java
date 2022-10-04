@@ -1,13 +1,13 @@
 package com.cms.admin.service;
 
-import com.cms.admin.entity.CmsDevice;
+import com.cms.admin.entity.DeviceEntity;
 import com.cms.admin.request.DeviceSearchRequest;
 import com.github.pagehelper.PageInfo;
 
 public interface CmsDeviceService {
-    PageInfo<CmsDevice> selectDevices(int page, int size);
+    PageInfo<DeviceEntity> selectDevices(int page, int size);
 
-    CmsDevice addDevice(CmsDevice device);
+    DeviceEntity addDevice(DeviceEntity device);
 
-    PageInfo<CmsDevice>  searchDevices(DeviceSearchRequest request);
+    PageInfo<DeviceEntity>  searchDevices(DeviceSearchRequest request);
 }

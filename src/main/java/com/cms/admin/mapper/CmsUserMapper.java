@@ -1,6 +1,6 @@
 package com.cms.admin.mapper;
 
-import com.cms.admin.entity.CmsUser;
+import com.cms.admin.entity.UserEntity;
 import com.cms.admin.vo.CmsUserVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -9,15 +9,15 @@ public interface CmsUserMapper {
 
     int deleteByPrimaryKey(Integer id);
 
-    int insertCmsUser(CmsUser cmsUser);
+    int insertCmsUser(UserEntity userEntity);
 
-    int insertSelective(CmsUser cmsUser);
+    int insertSelective(UserEntity userEntity);
 
-    CmsUser selectCmsUserByUsername(String username);
+    UserEntity selectCmsUserByUsername(String username);
 
     CmsUserVO selectCmsUserVOById(Integer id);
 
-    int updateByPrimaryKeySelective(CmsUser cmsUser);
+    int updateByPrimaryKeySelective(UserEntity userEntity);
 
-    int updateByPrimaryKey(CmsUser cmsUser);
+    int updateByPrimaryKey(UserEntity userEntity);
 }

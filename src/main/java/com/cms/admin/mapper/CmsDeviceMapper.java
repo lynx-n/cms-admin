@@ -1,6 +1,6 @@
 package com.cms.admin.mapper;
 
-import com.cms.admin.entity.CmsDevice;
+import com.cms.admin.entity.DeviceEntity;
 import com.cms.admin.request.DeviceSearchRequest;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,15 +10,15 @@ import java.util.List;
 public interface CmsDeviceMapper {
   int deleteByPrimaryKey(Integer id);
 
-  int insert(CmsDevice record);
+  int insert(DeviceEntity record);
 
-  int insertSelective(CmsDevice record);
+  int insertSelective(DeviceEntity record);
 
-  List<CmsDevice> searchDevices(DeviceSearchRequest request);
+  List<DeviceEntity> searchDevices(DeviceSearchRequest request);
 
-  List<CmsDevice> selectDevices();
+  List<DeviceEntity> selectDevices();
 
-  int updateByPrimaryKeySelective(CmsDevice record);
+  int updateByPrimaryKeySelective(DeviceEntity record);
 
-  int updateByPrimaryKey(CmsDevice record);
+  int updateByPrimaryKey(DeviceEntity record);
 }

@@ -1,7 +1,7 @@
 package com.cms.admin.service;
 
 
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.github.pagehelper.PageInfo;
 
 public interface CmsResourceService {
@@ -12,7 +12,7 @@ public interface CmsResourceService {
      * @param resource
      * @return
      */
-    int insertCmsResource(CmsResource resource);
+    int insertCmsResource(ResourceEntity resource);
 
 
     /**
@@ -21,7 +21,7 @@ public interface CmsResourceService {
      * @param md5
      * @return
      */
-    CmsResource selectResourceByMD5(String md5);
+    ResourceEntity selectResourceByMD5(String md5);
 
     /**
      * 根据uuid 获取资源
@@ -29,10 +29,10 @@ public interface CmsResourceService {
      * @param uuid
      * @return
      */
-    CmsResource selectResourceByUuid(String uuid);
+    ResourceEntity selectResourceByUuid(String uuid);
 
 
-    PageInfo<CmsResource> selectResourcePage(int page, int size);
+    PageInfo<ResourceEntity> selectResourcePage(int page, int size);
 
 
 }

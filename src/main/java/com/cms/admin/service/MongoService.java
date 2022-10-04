@@ -3,7 +3,7 @@ package com.cms.admin.service;
 
 import com.cms.admin.common.Constant;
 import com.cms.admin.common.UUIDUtils;
-import com.cms.admin.entity.CmsResource;
+import com.cms.admin.entity.ResourceEntity;
 import com.cms.admin.entity.SmallFileInfo;
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
@@ -45,7 +45,7 @@ public class MongoService {
      * @param
      * @return
      */
-    public String saveSmallFile(File file, CmsResource resource) {
+    public String saveSmallFile(File file, ResourceEntity resource) {
         log.info("SAVE SMALL FILE , SIZE:{} , NAME:{}", file.length(), file.getName());
         SmallFileInfo smallFileInfo = new SmallFileInfo();
         try (FileInputStream inputStream = new FileInputStream(file)) {
@@ -73,7 +73,7 @@ public class MongoService {
      * @param resource
      * @return
      */
-    public String saveBigFile(File file, CmsResource resource) {
+    public String saveBigFile(File file, ResourceEntity resource) {
         log.info("SAVE BIG FILE , SIZE:{} , NAME:{}", file.length(), file.getName());
         Document metadata = new Document();
         metadata.put("user_account", resource.getCreatedBy());
@@ -92,7 +92,7 @@ public class MongoService {
         return id;
     }
 
-    public byte[] download(String id, CmsResource resource) throws IOException {
+    public byte[] download(String id, ResourceEntity resource) throws IOException {
         log.info("DOWNLOAD RESOURCE:{}", id);
         byte[] contents;
         if (resource.getFileSize() >= Constant.FILE_SIZE_16M.getIntValue()) {

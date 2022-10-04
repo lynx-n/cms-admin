@@ -11,7 +11,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CmsLogEntity {
+public class LogEntity {
 
   /** 日志序号 */
   private Integer id;

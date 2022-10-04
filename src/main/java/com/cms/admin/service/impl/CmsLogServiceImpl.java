@@ -1,7 +1,6 @@
 package com.cms.admin.service.impl;
 
-import com.cms.admin.entity.CmsDevice;
-import com.cms.admin.entity.CmsLogEntity;
+import com.cms.admin.entity.LogEntity;
 import com.cms.admin.mapper.CmsLogMapper;
 import com.cms.admin.request.LogSearchRequest;
 import com.cms.admin.service.CmsLogService;
@@ -24,15 +23,15 @@ public class CmsLogServiceImpl implements CmsLogService {
   @Resource private CmsLogMapper logMapper;
 
   @Override
-  public int insert(CmsLogEntity record) {
+  public int insert(LogEntity record) {
     log.info("insert sysLog,type:{}", record.getOperationType());
     return logMapper.insert(record);
   }
 
   @Override
-  public PageInfo<CmsLogEntity> searchBaseLog(LogSearchRequest request) {
+  public PageInfo<LogEntity> searchBaseLog(LogSearchRequest request) {
     PageHelper.startPage(request.getPageNo(), request.getPageSize());
-    List<CmsLogEntity> baseLog = logMapper.selectBaseLog(request);
+    List<LogEntity> baseLog = logMapper.selectBaseLog(request);
     return new PageInfo<>(baseLog);
   }
 

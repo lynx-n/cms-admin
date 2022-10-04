@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CmsUserRoleRelation implements Serializable {
+public class UserRoleRelation implements Serializable {
   /** 主键id */
   private Integer id;
 

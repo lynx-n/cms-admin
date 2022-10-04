@@ -2,9 +2,9 @@ package com.cms.admin.controller;
 
 import com.cms.admin.aspect.SystemLog;
 import com.cms.admin.common.*;
-import com.cms.admin.entity.CmsRole;
-import com.cms.admin.entity.CmsUser;
-import com.cms.admin.entity.CmsUserRoleRelation;
+import com.cms.admin.entity.RoleEntity;
+import com.cms.admin.entity.UserEntity;
+import com.cms.admin.entity.UserRoleRelation;
 import com.cms.admin.entity.ResponseEntity;
 import com.cms.admin.params.UserAddParams;
 import com.cms.admin.params.UserLoginParams;
@@ -15,7 +15,6 @@ import com.cms.admin.vo.CmsUserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,15 +44,15 @@ public class CmsUserController {
     }
     // 是否是错误角色id校验
     int roleId = userAddParams.getRoleId();
-    CmsRole cmsRole = roleService.selectCmsRoleById(roleId);
-    if (cmsRole == null) {
+    RoleEntity roleEntity = roleService.selectCmsRoleById(roleId);
+    if (roleEntity == null) {
       return ResponseUtils.badRequest(Constant.PARAMS_LEN_ERROR.getValue());
     }
 
     // 创建用户
     String encryptKey = UUIDUtils.getEncryptKey();
-    CmsUser cmsUser =
-        CmsUser.builder()
+    UserEntity userEntity =
+        UserEntity.builder()
             .encryptKey(encryptKey)
             .userName(userAddParams.getUsername())
             .password(AesUtils.encrypt(userAddParams.getPassword(), encryptKey))
@@ -62,15 +61,15 @@ public class CmsUserController {
             .build();
 
     // 插入用户信息
-    userService.insertCmsUser(cmsUser);
+    userService.insertCmsUser(userEntity);
 
     // 插入用户-角色信息
-    CmsUserRoleRelation userRoleRelation =
-        CmsUserRoleRelation.builder().userId(cmsUser.getId()).roleId(roleId).build();
+    UserRoleRelation userRoleRelation =
+        UserRoleRelation.builder().userId(userEntity.getId()).roleId(roleId).build();
     userRoleRelationService.insertUserRoleRelation(userRoleRelation);
 
     // 返回结果
-    CmsUserVO cmsUserVO = userService.selectCmsUserById(cmsUser.getId());
+    CmsUserVO cmsUserVO = userService.selectCmsUserById(userEntity.getId());
 
     return ResponseUtils.success(cmsUserVO);
   }
@@ -81,17 +80,17 @@ public class CmsUserController {
   public ResponseEntity<Object> login(UserLoginParams userLoginParams) {
     log.info("user [{}] login", userLoginParams.getUsername());
     String username = userLoginParams.getUsername();
-    CmsUser cmsUser = userService.selectCmsUserByUsername(username);
+    UserEntity userEntity = userService.selectCmsUserByUsername(username);
     String decryptPassword = "";
-    if (cmsUser != null) {
-      decryptPassword = AesUtils.decrypt(cmsUser.getPassword(), cmsUser.getEncryptKey());
+    if (userEntity != null) {
+      decryptPassword = AesUtils.decrypt(userEntity.getPassword(), userEntity.getEncryptKey());
     }
-    if (cmsUser == null || !userLoginParams.getPassword().equals(decryptPassword)) {
+    if (userEntity == null || !userLoginParams.getPassword().equals(decryptPassword)) {
       log.info("password error");
       return ResponseUtils.badRequest(Constant.USER_USERNAME_PASSWORD_IS_ERROR_CN.getValue());
     }
 
-    return ResponseUtils.success(cmsUser);
+    return ResponseUtils.success(userEntity);
   }
 
   @GetMapping("/{userId}")

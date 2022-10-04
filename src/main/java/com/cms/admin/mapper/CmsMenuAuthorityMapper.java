@@ -1,23 +1,22 @@
 package com.cms.admin.mapper;
 
-import com.cms.admin.entity.CmsMenuAuthorityEntity;
+import com.cms.admin.entity.MenuAuthorityEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface CmsMenuAuthorityMapper {
-    int deleteByPrimaryKey(Integer id);
+  int deleteMenuByIds(@Param("ids") List<Integer> ids);
 
-    int insert(CmsMenuAuthorityEntity record);
+  int insert(MenuAuthorityEntity record);
 
-    int insertSelective(CmsMenuAuthorityEntity record);
+  int insertMenus(List<MenuAuthorityEntity> entityList);
 
-    CmsMenuAuthorityEntity selectByPrimaryKey(Integer id);
+  MenuAuthorityEntity selectMenuById(Integer id);
 
-    List<CmsMenuAuthorityEntity> selectMenus();
+  List<MenuAuthorityEntity> selectMenus();
 
-    int updateByPrimaryKeySelective(CmsMenuAuthorityEntity record);
-
-    int updateByPrimaryKey(CmsMenuAuthorityEntity record);
+  int updateMenus(List<MenuAuthorityEntity> entityList);
 }

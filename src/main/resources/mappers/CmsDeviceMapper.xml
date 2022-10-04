@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cms.admin.mapper.CmsDeviceMapper">
-    <resultMap id="BaseResultMap" type="com.cms.admin.entity.CmsDevice">
+    <resultMap id="BaseResultMap" type="com.cms.admin.entity.DeviceEntity">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="device_number" jdbcType="VARCHAR" property="deviceNumber"/>
         <result column="device_ip" jdbcType="VARCHAR" property="deviceIp"/>
@@ -66,7 +66,7 @@
         from t_cms_device
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsDevice"
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.DeviceEntity"
             useGeneratedKeys="true">
         insert into t_cms_device (device_number, device_ip, device_mac,
                                   device_position, created_by, updated_by,
@@ -75,7 +75,7 @@
                 #{devicePosition,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{updatedBy,jdbcType=VARCHAR},
                 #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP})
     </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.CmsDevice"
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cms.admin.entity.DeviceEntity"
             useGeneratedKeys="true">
         insert into t_cms_device
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -131,7 +131,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.CmsDevice">
+    <update id="updateByPrimaryKeySelective" parameterType="com.cms.admin.entity.DeviceEntity">
         update t_cms_device
         <set>
             <if test="deviceNumber != null">
@@ -161,7 +161,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.CmsDevice">
+    <update id="updateByPrimaryKey" parameterType="com.cms.admin.entity.DeviceEntity">
         update t_cms_device
         set device_number   = #{deviceNumber,jdbcType=VARCHAR},
             device_ip       = #{deviceIp,jdbcType=VARCHAR},
